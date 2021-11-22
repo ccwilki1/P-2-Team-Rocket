@@ -31,9 +31,7 @@ namespace DL.Entities
 
             modelBuilder.Entity<Event>(entity =>
             {
-                entity.Property(e => e.EventId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("Event_Id");
+                entity.Property(e => e.EventId).HasColumnName("Event_Id");
 
                 entity.Property(e => e.EndTime).HasColumnName("End_Time");
 
@@ -61,9 +59,7 @@ namespace DL.Entities
             {
                 entity.ToTable("Forum");
 
-                entity.Property(e => e.ForumId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("Forum_Id");
+                entity.Property(e => e.ForumId).HasColumnName("Forum_Id");
 
                 entity.Property(e => e.AmountOfPosts).HasColumnName("Amount_of_Posts");
 
@@ -85,16 +81,14 @@ namespace DL.Entities
                     .WithMany(p => p.Forums)
                     .HasForeignKey(d => d.CreatorId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Forum__Creator_I__73BA3083");
+                    .HasConstraintName("FK__Forum__Creator_I__04E4BC85");
             });
 
             modelBuilder.Entity<Invite>(entity =>
             {
                 entity.ToTable("invite");
 
-                entity.Property(e => e.InviteId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("Invite_Id");
+                entity.Property(e => e.InviteId).HasColumnName("Invite_Id");
 
                 entity.Property(e => e.EmailRecipient)
                     .IsRequired()
@@ -110,20 +104,18 @@ namespace DL.Entities
                     .WithMany(p => p.Invites)
                     .HasForeignKey(d => d.EventId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__invite__Event_Id__6C190EBB");
+                    .HasConstraintName("FK__invite__Event_Id__02FC7413");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Invites)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__invite__User_Id__6D0D32F4");
+                    .HasConstraintName("FK__invite__User_Id__03F0984C");
             });
 
             modelBuilder.Entity<Post>(entity =>
             {
-                entity.Property(e => e.PostId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("Post_Id");
+                entity.Property(e => e.PostId).HasColumnName("Post_Id");
 
                 entity.Property(e => e.DateCreated)
                     .IsRequired()
@@ -145,25 +137,23 @@ namespace DL.Entities
                     .WithMany(p => p.Posts)
                     .HasForeignKey(d => d.ForumId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Posts__Forum_Id__74AE54BC");
+                    .HasConstraintName("FK__Posts__Forum_Id__07C12930");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Posts)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Posts__User_Id__71D1E811");
+                    .HasConstraintName("FK__Posts__User_Id__05D8E0BE");
             });
 
             modelBuilder.Entity<PostsAndReply>(entity =>
             {
                 entity.HasKey(e => e.PostReplyId)
-                    .HasName("PK__Posts_an__ABD98733925B63EF");
+                    .HasName("PostReply_Id");
 
                 entity.ToTable("Posts_and_Replies");
 
-                entity.Property(e => e.PostReplyId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("PostReply_Id");
+                entity.Property(e => e.PostReplyId).HasColumnName("PostReply_Id");
 
                 entity.Property(e => e.PostId).HasColumnName("Post_Id");
 
@@ -173,20 +163,18 @@ namespace DL.Entities
                     .WithMany(p => p.PostsAndReplies)
                     .HasForeignKey(d => d.PostId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Posts_and__Post___76969D2E");
+                    .HasConstraintName("FK__Posts_and__Post___09A971A2");
 
                 entity.HasOne(d => d.Reply)
                     .WithMany(p => p.PostsAndReplies)
                     .HasForeignKey(d => d.ReplyId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Posts_and__Reply__787EE5A0");
+                    .HasConstraintName("FK__Posts_and__Reply__0A9D95DB");
             });
 
             modelBuilder.Entity<Reply>(entity =>
             {
-                entity.Property(e => e.ReplyId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("Reply_Id");
+                entity.Property(e => e.ReplyId).HasColumnName("Reply_Id");
 
                 entity.Property(e => e.DateCreated)
                     .IsRequired()
@@ -208,12 +196,12 @@ namespace DL.Entities
                     .WithMany(p => p.Replies)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Replies__User_Id__6E01572D");
+                    .HasConstraintName("FK__Replies__User_Id__06CD04F7");
             });
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Email)
                     .IsRequired()

@@ -12,11 +12,11 @@ namespace DL.Entities
             PostsAndReplies = new HashSet<PostsAndReply>();
         }
 
-        public int PostId { get; set; }
         public string PostText { get; set; }
         public string DateCreated { get; set; }
         public int UserId { get; set; }
         public int ForumId { get; set; }
+        public int PostId { get; set; }
 
         public virtual Forum Forum { get; set; }
         public virtual User User { get; set; }

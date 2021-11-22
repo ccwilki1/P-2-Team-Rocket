@@ -12,11 +12,11 @@ namespace DL.Entities
             Posts = new HashSet<Post>();
         }
 
-        public int ForumId { get; set; }
         public string TopicName { get; set; }
         public string DateCreated { get; set; }
         public int CreatorId { get; set; }
         public int AmountOfPosts { get; set; }
+        public int ForumId { get; set; }
 
         public virtual User Creator { get; set; }
         public virtual ICollection<Post> Posts { get; set; }

@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using BL;
 using DL;
 using DL.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Model = Models;
 
 namespace UI
 {
@@ -24,8 +26,13 @@ namespace UI
             Console.WriteLine("Hello World!");
 
             var instance = new ConsoleTesting(new UsersBL(new UserCloudRepo(new P3ApiContext(options))));
-            instance.TestAdd();
-            //Console.WriteLine(instance.TestShowAll());
+            //instance.TestAdd();
+            List<Model.Users> ListOfUsers= instance.TestShowAll();
+            foreach(Models.Users user in ListOfUsers)
+            {
+                Console.WriteLine(user.ToString());
+            }
+            
             
         }
 

@@ -15,10 +15,10 @@ namespace DL.Entities
             Replies = new HashSet<Reply>();
         }
 
-        public int Id { get; set; }
         public string UserName { get; set; }
         public string UserPass { get; set; }
         public string Email { get; set; }
+        public int Id { get; set; }
 
         public virtual ICollection<Forum> Forums { get; set; }
         public virtual ICollection<Invite> Invites { get; set; }
