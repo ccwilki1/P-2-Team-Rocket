@@ -5,7 +5,7 @@ using DL;
 using DL.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using UI;
+
 namespace UI
 {
     class Program
@@ -24,8 +24,8 @@ namespace UI
             Console.WriteLine("Hello World!");
 
             var instance = new ConsoleTesting(new UsersBL(new UserCloudRepo(new P3ApiContext(options))));
-            //instance.TestAdd();
-            Console.WriteLine(instance.TestShowAll());
+            instance.TestAdd();
+            //Console.WriteLine(instance.TestShowAll());
             
         }
 
