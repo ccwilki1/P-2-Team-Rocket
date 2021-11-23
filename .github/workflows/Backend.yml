@@ -2,9 +2,9 @@ name: Backend
 
 on:
   push:
-    branches: [ main ]
+    branches: [ NewTestBranch ]
   pull_request:
-    branches: [ main ]
+    branches: [ NewTestBranch ]
 jobs:
   build:
     runs-on: ubuntu-latest
