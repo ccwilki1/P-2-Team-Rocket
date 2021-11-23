@@ -41,13 +41,6 @@ namespace Models
         // public List<Reply> Replies { get; set; }
 
 
-
-
-
-
-
-
-
         public override string ToString()
         {
             return $"ID: {ID}\nName: {UserName}\nEmail: {Email}";
