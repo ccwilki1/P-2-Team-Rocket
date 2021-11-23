@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+
 namespace Models
 {
     public class Users
@@ -32,6 +33,20 @@ namespace Models
             get { return _Email; }
             set { _Email = value; }
         }
+
+
+        // public  List<Forum> Forums { get; set; }
+        // public List<Invite> Invites { get; set; }
+        // public List<Post> Posts { get; set; }
+        // public List<Reply> Replies { get; set; }
+
+
+
+
+
+
+
+
 
         public override string ToString()
         {
