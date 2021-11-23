@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace Models
 {
-    public class Users
+    public class User
     {
         private int _ID;
         public int ID
@@ -35,17 +35,10 @@ namespace Models
         }
 
 
-        // public  List<Forum> Forums { get; set; }
-        // public List<Invite> Invites { get; set; }
-        // public List<Post> Posts { get; set; }
-        // public List<Reply> Replies { get; set; }
-
-
-
-
-
-
-
+        public  List<Forum> Forums { get; set; }
+        public List<Invite> Invites { get; set; }
+        public List<Post> Posts { get; set; }
+        public List<Reply> Replies { get; set; }
 
 
         public override string ToString()
